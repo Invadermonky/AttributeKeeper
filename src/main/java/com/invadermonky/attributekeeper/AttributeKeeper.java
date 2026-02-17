@@ -43,6 +43,7 @@ public class AttributeKeeper {
 
     @Mod.EventHandler
     public void serverStarting(FMLServerStartingEvent event) {
-        //TODO: Talk to AC and Ski about adding the attribute command to this mod.
+        //TODO: remove if use is okay
+        //event.registerServerCommand(new CommandPlayerAttribute());
     }
 }

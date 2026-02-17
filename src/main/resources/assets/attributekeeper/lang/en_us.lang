@@ -1,0 +1,8 @@
+command.playerattribute.usage=Usage: /attributekeeper <target> <attribute> <get|add|set|mult> [value]
+command.playerattribute.invalid_usage=Invalid command usage. For syntax, type /help attributekeeper
+command.playerattribute.invalid_attribute=Invalid attribute: %s
+command.playerattribute.unknown_action=Unknown action: %s
+command.playerattribute.get=%s: Current value is %s
+command.playerattribute.add=%s: Added %s. New value is %s
+command.playerattribute.set=%s: Set value to %s
+command.playerattribute.mult=%s: Multiplied by %s. New value is %s
