@@ -1,0 +1,11 @@
+[
+  {
+    "__comment": "For mor information about what each of these values do, check out the github wiki.",
+    "attributeName": "generic.exampleAttribute",
+    "persistent": false,
+    "attributeLossPercentage": 0.1,
+    "attributeLossFlat": 1.0,
+    "minimumLevel": 10,
+    "maximumLevel": 20
+  }
+]
