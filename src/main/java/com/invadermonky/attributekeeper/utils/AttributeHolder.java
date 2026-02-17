@@ -15,6 +15,8 @@ public class AttributeHolder {
     public double attributeLossPercentage;
     /** The flat attribute loss value after death. This will overwrite the modifier setting if it is larger than the calculated modifier loss. */
     public double attributeLossFlat;
+    /** Whether the minimum attribute value will overwrite the base original base value if it is higher. */
+    public boolean overwriteBase;
     /** The minimum attribute value. The attribute setting cannot fall below this value after death. */
     public double minimumLevel;
     /** The maximum attribute value. The attribute value cannot be above this value after player death. */
@@ -54,7 +56,10 @@ public class AttributeHolder {
         } else {
             double loss = originalBaseValue * this.attributeLossPercentage;
             loss = Math.max(this.attributeLossFlat, loss);
-            double min = Math.min(originalBaseValue, this.minimumLevel);
+            double min = this.minimumLevel;
+            if(this.overwriteBase) {
+                min = Math.min(originalBaseValue, min);
+            }
             double max = Math.max(min, this.maximumLevel);
             return MathHelper.clamp(originalBaseValue - loss, min, max);
         }
