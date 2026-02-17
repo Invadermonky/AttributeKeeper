@@ -18,26 +18,24 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class CloneEventHandler {
     @SubscribeEvent
     public static void playerCloneEvent(PlayerEvent.Clone event) {
-        if(event.isWasDeath()) {
-            EntityPlayer oldPlayer = event.getOriginal();
-            EntityPlayer newPlayer = event.getEntityPlayer();
+        EntityPlayer oldPlayer = event.getOriginal();
+        EntityPlayer newPlayer = event.getEntityPlayer();
 
-            //Preserve Hunger
-            preserveHunger(oldPlayer, newPlayer);
+        //Preserve Hunger
+        preserveHunger(oldPlayer, newPlayer);
 
-            //Preserve XP
-            preserveExperience(oldPlayer, newPlayer);
+        //Preserve XP
+        preserveExperience(oldPlayer, newPlayer);
 
-            //Mod Compat
-            ModCompat.getCompatModules().forEach(module -> module.copyStats(oldPlayer, newPlayer));
+        //Mod Compat
+        ModCompat.getCompatModules().forEach(module -> module.copyStats(oldPlayer, newPlayer));
 
-            //Transfering Attributes
-            AbstractAttributeMap attributeMap = oldPlayer.getAttributeMap();
-            for(IAttributeInstance instance : attributeMap.getAllAttributes()) {
-                FileHandlerAK.getAttributeHolders().stream()
-                        .filter(holder -> holder.matches(instance))
-                        .forEach(holder -> holder.preserveAttribute(newPlayer, instance));
-            }
+        //Transfering Attributes
+        AbstractAttributeMap attributeMap = oldPlayer.getAttributeMap();
+        for(IAttributeInstance instance : attributeMap.getAllAttributes()) {
+            FileHandlerAK.getAttributeHolders().stream()
+                    .filter(holder -> holder.matches(instance))
+                    .forEach(holder -> holder.preserveAttribute(newPlayer, instance));
         }
     }
 
