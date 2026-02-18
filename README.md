@@ -50,6 +50,8 @@ Attribute Keeper can also define hunger behavior after respawn. Options include:
   </ul>
 </ul>
 
+---
+
 ## ⚡ Commands
 ### Reload Command
 - `/attributekeeper_reload` -   Reloads the Attribute Keeper attribute json file without a game restart.
@@ -66,8 +68,12 @@ Attribute Keeper can also define hunger behavior after respawn. Options include:
 * `/playerattribute @p generic.movementSpeed set 0.2` - Set the nearest player's movement speed to 0.2.
 * `/playerattribute @p generic.movementSpeed mult 2` - Multiply the nearest player's movement speed by 2.
 
+---
+
 ## 🚫 Incompatibilities
 - Scaling Health - While not directly incompatible, the health modifications added by this mod directly conflict with Attribute Keeper's attribute handling. Attribute Keeper should be compatible so long as you do not define any behavior using the attribute `generic.maxHealth`.
+
+---
 
 ## 📜 Credits
 - [ACGaming](https://www.curseforge.com/members/acgaming/projects) and [Ski_Z](https://www.curseforge.com/members/ski_z/projects) - Permission to include the [Player Attribute Commands](https://www.curseforge.com/minecraft/mc-mods/player-attribute-commands) command in Attribute Keeper
