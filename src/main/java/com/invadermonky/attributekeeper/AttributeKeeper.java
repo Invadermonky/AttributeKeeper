@@ -1,6 +1,7 @@
 package com.invadermonky.attributekeeper;
 
 import com.invadermonky.attributekeeper.commands.CommandPlayerAttribute;
+import com.invadermonky.attributekeeper.commands.CommandReloadConfigAK;
 import com.invadermonky.attributekeeper.compat.ModCompat;
 import com.invadermonky.attributekeeper.config.FileHandlerAK;
 import net.minecraftforge.fml.common.Mod;
@@ -45,5 +46,6 @@ public class AttributeKeeper {
     @Mod.EventHandler
     public void serverStarting(FMLServerStartingEvent event) {
         event.registerServerCommand(new CommandPlayerAttribute());
+        event.registerServerCommand(new CommandReloadConfigAK());
     }
 }

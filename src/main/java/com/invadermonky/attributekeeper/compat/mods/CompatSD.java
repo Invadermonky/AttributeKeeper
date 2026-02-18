@@ -12,9 +12,11 @@ import net.minecraft.util.math.MathHelper;
 
 public class CompatSD implements ICompatModule {
     @Override
-    public void copyStats(EntityPlayer oldPlayer, EntityPlayer newPlayer) {
-        this.copyTemperature(oldPlayer, newPlayer);
-        this.copyThirst(oldPlayer, newPlayer);
+    public void copyStats(EntityPlayer oldPlayer, EntityPlayer newPlayer, boolean isDeath) {
+        if(isDeath) {
+            this.copyTemperature(oldPlayer, newPlayer);
+            this.copyThirst(oldPlayer, newPlayer);
+        }
     }
 
     private void copyTemperature(EntityPlayer oldPlayer, EntityPlayer newPlayer) {

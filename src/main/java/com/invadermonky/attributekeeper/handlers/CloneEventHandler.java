@@ -22,12 +22,11 @@ public class CloneEventHandler {
         EntityPlayer newPlayer = event.getEntityPlayer();
 
         //Preserve Hunger
-        preserveHunger(oldPlayer, newPlayer);
+        preserveHunger(oldPlayer, newPlayer, event.isWasDeath());
         //Preserve XP
-        preserveExperience(oldPlayer, newPlayer);
+        preserveExperience(oldPlayer, newPlayer, event.isWasDeath());
         //Mod Compat
-        ModCompat.getCompatModules().forEach(module -> module.copyStats(oldPlayer, newPlayer));
-
+        ModCompat.getCompatModules().forEach(module -> module.copyStats(oldPlayer, newPlayer, event.isWasDeath()));
         //Transfering Attributes
         AbstractAttributeMap attributeMap = oldPlayer.getAttributeMap();
         for(IAttributeInstance instance : attributeMap.getAllAttributes()) {
@@ -37,15 +36,12 @@ public class CloneEventHandler {
         }
     }
 
-    private static void preserveHunger(EntityPlayer oldPlayer, EntityPlayer newPlayer) {
-        if(!ConfigHandlerAK.food_keeper.enable)
+    private static void preserveHunger(EntityPlayer oldPlayer, EntityPlayer newPlayer, boolean isDeath) {
+        if(!isDeath || !ConfigHandlerAK.food_keeper.enable)
             return;
 
         FoodStats oldStats = oldPlayer.getFoodStats();
         FoodStats newStats = newPlayer.getFoodStats();
-
-        if(oldStats.getFoodLevel() == newStats.getFoodLevel() && oldStats.getSaturationLevel() == newStats.getSaturationLevel())
-            return;
 
         if(ConfigHandlerAK.food_keeper.persistentFood) {
             newStats.setFoodLevel(oldStats.getFoodLevel());
@@ -72,8 +68,8 @@ public class CloneEventHandler {
         }
     }
 
-    private static void preserveExperience(EntityPlayer oldPlayer, EntityPlayer newPlayer) {
-        if(!ConfigHandlerAK.experience_keeper.enable || oldPlayer.experienceTotal == newPlayer.experienceTotal)
+    private static void preserveExperience(EntityPlayer oldPlayer, EntityPlayer newPlayer, boolean isDeath) {
+        if(!isDeath || !ConfigHandlerAK.experience_keeper.enable || oldPlayer.experienceTotal == newPlayer.experienceTotal)
             return;
 
         if(ConfigHandlerAK.experience_keeper.persistent) {
