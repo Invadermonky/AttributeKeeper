@@ -1,3 +1,7 @@
+
+command.ak_reload.usage=Usage: /attributekeeper_reload
+command.ak_reload.invalid_usage=Invalid command usage. For syntax, type /help attributekeeper_usage
+command.ak_reload.success=Attribute Keeper configurations reloaded.
 command.playerattribute.usage=Usage: /attributekeeper <target> <attribute> <get|add|set|mult> [value]
 command.playerattribute.invalid_usage=Invalid command usage. For syntax, type /help attributekeeper
 command.playerattribute.invalid_attribute=Invalid attribute: %s

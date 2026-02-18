@@ -45,7 +45,7 @@ public class AttributeHolder {
         double newBase = isDeath ? this.getNewBaseValue(originalAttribute.getBaseValue()) : originalAttribute.getBaseValue();
         if (instance == null) {
             player.getAttributeMap().registerAttribute(originalAttribute.getAttribute()).setBaseValue(newBase);
-        } else {
+        } else if(instance.getAttributeValue() != newBase) {
             instance.setBaseValue(newBase);
         }
     }
