@@ -1,7 +1,5 @@
 # Attribute Keeper
-Attribute Keeper is a mod that allows users to define attribute, hunger and experience behavior when a player respawns after dying.
-
-
+Attribute Keeper is a mod that allows users to define attribute, hunger, and XP behavior when a player respawns after dying.
 
 All features can be toggled individually, so you could potentially disable the entire mod if necessary.
 
