@@ -37,7 +37,7 @@ Attribute Keeper can also define hunger behavior after respawn. Options include:
 - Reducing food stats by a set amount
 - Reducing food stats by a percentage of current hunger
 - Setting a minimum amount of hunger players will respawn with
-- Setting a maximum amount of food players can respawn with
+- Setting a maximum amount of hunger players can respawn with
 
 
 ---
