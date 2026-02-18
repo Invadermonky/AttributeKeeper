@@ -1,13 +1,12 @@
 package com.invadermonky.attributekeeper.commands;
 
 import com.invadermonky.attributekeeper.AttributeKeeper;
+import com.invadermonky.attributekeeper.config.FileHandlerAK;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.ConfigManager;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collections;
@@ -34,7 +33,7 @@ public class CommandReloadConfigAK extends CommandBase {
         if(args.length > 0) {
             throw new CommandException("command.ak_reload.invalid_usage");
         }
-        ConfigManager.sync(AttributeKeeper.MOD_ID, Config.Type.INSTANCE);
+        FileHandlerAK.syncConfig();
         sender.sendMessage(new TextComponentTranslation("command.ak_reload.success"));
     }
 
