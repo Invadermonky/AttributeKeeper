@@ -37,12 +37,12 @@ public class AttributeHolder {
         }
     }
 
-    public void preserveAttribute(EntityPlayer player, IAttributeInstance originalAttribute) {
+    public void preserveAttribute(EntityPlayer player, IAttributeInstance originalAttribute, boolean isDeath) {
         if(!this.matches(originalAttribute))
             return;
 
         IAttributeInstance instance = player.getEntityAttribute(originalAttribute.getAttribute());
-        double newBase = this.getNewBaseValue(originalAttribute.getBaseValue());
+        double newBase = isDeath ? this.getNewBaseValue(originalAttribute.getBaseValue()) : originalAttribute.getBaseValue();
         if (instance == null) {
             player.getAttributeMap().registerAttribute(originalAttribute.getAttribute()).setBaseValue(newBase);
         } else {

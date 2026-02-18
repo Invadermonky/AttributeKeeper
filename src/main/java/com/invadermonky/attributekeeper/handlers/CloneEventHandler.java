@@ -23,10 +23,8 @@ public class CloneEventHandler {
 
         //Preserve Hunger
         preserveHunger(oldPlayer, newPlayer);
-
         //Preserve XP
         preserveExperience(oldPlayer, newPlayer);
-
         //Mod Compat
         ModCompat.getCompatModules().forEach(module -> module.copyStats(oldPlayer, newPlayer));
 
@@ -35,7 +33,7 @@ public class CloneEventHandler {
         for(IAttributeInstance instance : attributeMap.getAllAttributes()) {
             FileHandlerAK.getAttributeHolders().stream()
                     .filter(holder -> holder.matches(instance))
-                    .forEach(holder -> holder.preserveAttribute(newPlayer, instance));
+                    .forEach(holder -> holder.preserveAttribute(newPlayer, instance, event.isWasDeath()));
         }
     }
 
@@ -45,6 +43,9 @@ public class CloneEventHandler {
 
         FoodStats oldStats = oldPlayer.getFoodStats();
         FoodStats newStats = newPlayer.getFoodStats();
+
+        if(oldStats.getFoodLevel() == newStats.getFoodLevel() && oldStats.getSaturationLevel() == newStats.getSaturationLevel())
+            return;
 
         if(ConfigHandlerAK.food_keeper.persistentFood) {
             newStats.setFoodLevel(oldStats.getFoodLevel());
@@ -72,7 +73,7 @@ public class CloneEventHandler {
     }
 
     private static void preserveExperience(EntityPlayer oldPlayer, EntityPlayer newPlayer) {
-        if(!ConfigHandlerAK.experience_keeper.enable)
+        if(!ConfigHandlerAK.experience_keeper.enable || oldPlayer.experienceTotal == newPlayer.experienceTotal)
             return;
 
         if(ConfigHandlerAK.experience_keeper.persistent) {
