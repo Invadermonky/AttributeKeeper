@@ -23,7 +23,11 @@ For information on how to configure the Attribute Keeper mod, check out the <a h
 ---
 
 ## ✨ Experience
-Attribute Keeper also includes an Experience Keeper feature, allowing users to define xp behavior on respawn. This includes retaining all experience, losing a set amount of experience, losing a percentage of total experience, and setting a maximum amount of experience that can be kept.
+Attribute Keeper also includes an Experience Keeper feature, allowing users to define xp behavior on respawn. Options include:
+- Retaining all experience
+- Losing a set amount of experience
+- Losing a percentage of total experience
+- Setting a maximum amount of experience players can respawn with
 
 ---
 
@@ -44,7 +48,7 @@ Attribute Keeper can also define hunger behavior after respawn. Options include:
   <ul>
     <li><b>Temperature Keeper</b> - Body temperature will remain unchanged after respawn.</li>
     <li><b>Thirst Keeper</b> - Functions exactly like the hunger keeper, but for thirst.</li>
-    <li><b>Bug Fix</b> - Thirst HUD will now update correctly on login or when changing dimensions.</li>
+    <li><b>Bug Fix</b> - Thirst and Temperature HUD will now update correctly on login or when changing dimensions.</li>
   </ul>
 </ul>
 
@@ -69,7 +73,7 @@ Attribute Keeper can also define hunger behavior after respawn. Options include:
 ---
 
 ## 🚫 Incompatibilities
-- Scaling Health - While not directly incompatible, the health modifications added by this mod directly conflict with Attribute Keeper's attribute handling. Attribute Keeper should be compatible so long as you do not define any behavior using the attribute `generic.maxHealth`.
+- [Scaling Health](https://www.curseforge.com/minecraft/mc-mods/scaling-health) - While not directly incompatible, the health modifications added by this mod directly conflict with Attribute Keeper's attribute handling. Attribute Keeper should be compatible so long as you do not define any behavior using the attribute `generic.maxHealth`.
 
 ---
 
