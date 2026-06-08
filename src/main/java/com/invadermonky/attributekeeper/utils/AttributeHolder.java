@@ -2,6 +2,7 @@ package com.invadermonky.attributekeeper.utils;
 
 import com.google.common.base.Preconditions;
 import com.invadermonky.attributekeeper.AttributeKeeper;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.MathHelper;
@@ -46,6 +47,9 @@ public class AttributeHolder {
         if (instance == null) {
             player.getAttributeMap().registerAttribute(originalAttribute.getAttribute()).setBaseValue(newBase);
         } else if(instance.getAttributeValue() != newBase) {
+            if(instance.getAttribute() == SharedMonsterAttributes.MOVEMENT_SPEED) {
+                player.capabilities.walkSpeed = (float) newBase;
+            }
             instance.setBaseValue(newBase);
         }
     }
