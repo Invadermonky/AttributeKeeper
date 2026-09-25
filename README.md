@@ -74,7 +74,7 @@ Attribute Keeper can also define hunger behavior after respawn. Options include:
 
 ## 🚫 Incompatibilities
 - [Immersive Combat](https://www.curseforge.com/minecraft/mc-mods/immersive-combat) - Attack speed changes are reset whenever a player joins a world or changes dimensions. See [this issue](https://github.com/Invadermonky/AttributeKeeper/issues/1) for more information.
-- [Scaling Health](https://www.curseforge.com/minecraft/mc-mods/scaling-health) - While not directly incompatible, the health modifications added by this mod directly conflict with Attribute Keeper's attribute handling. Attribute Keeper should be compatible so long as you do not define any behavior using the attribute `generic.maxHealth`.
+- [Scaling Health](https://www.curseforge.com/minecraft/mc-mods/scaling-health) - Health modifications added by Scaling Health conflict with Attribute Keeper's attribute handling. Attribute Keeper should be compatible so long as you do not define any behavior using the attribute `generic.maxHealth`.
 - [Stat Tinkerer](https://www.curseforge.com/minecraft/mc-mods/stat-tinkerer) - Most of the functionality of this mod already exists in Attribute Keeper. They can be used together, but Stat Tinkerer will overwrite Attribute Keeper changes.
 
 ---
